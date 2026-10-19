@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Resource Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Rental Resource Management System</h1>
+    <p>Manage resources, customers, and rentals in one place.</p>
+</header>
+
+<nav>
+    <button onclick="showSection('resources')">Resources</button>
+    <button onclick="showSection('customers')">Customers</button>
+    <button onclick="showSection('rentals')">Rentals</button>
+</nav>
+
+<main>
+    <section id="resources">
+        <h2>Manage Resources</h2>
+        <form id="resourceForm">
+            <input type="text" id="resourceName"
+                   placeholder="Resource name" required>
+            <input type="text" id="resourceCategory"
+                   placeholder="Category" required>
+            <input type="number" id="resourcePrice"
+                   placeholder="Rental price" min="0" required>
+            <button type="submit">Add Resource</button>
+        </form>
+        <div id="resourceList"></div>
+    </section>
+
+    <section id="customers" hidden>
+        <h2>Manage Customers</h2>
+        <form id="customerForm">
+            <input type="text" id="customerName"
+                   placeholder="Customer name" required>
+            <input type="tel" id="customerPhone"
+                   placeholder="10-digit phone number"
+                   pattern="[0-9]{10}" required>
+            <button type="submit">Add Customer</button>
+        </form>
+        <div id="customerList"></div>
+    </section>
+
+    <section id="rentals" hidden>
+        <h2>Manage Rentals</h2>
+        <form id="rentalForm">
+            <input type="number" id="rentalCustomerId"
+                   placeholder="Customer ID" min="1" required>
+            <input type="number" id="rentalResourceId"
+                   placeholder="Resource ID" min="1" required>
+            <label for="rentalDate">Rental date</label>
+            <input type="date" id="rentalDate" required>
+            <label for="returnDate">Return date (optional)</label>
+            <input type="date" id="returnDate">
+            <button type="submit">Add Rental</button>
+        </form>
+        <div id="rentalList"></div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
+
